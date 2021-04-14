@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GameFinder.Data;
+using GameFinder.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +10,65 @@ namespace GameFinder.Services
 {
     public class GameConsoleService
     {
+
+        public bool CreateGameConsole(GameConsoleCreate console)
+        {
+            var entity = new GameConsole()
+            {
+                ConsoleId = console.ConsoleId,
+                ConsoleName = console.ConsoleName
+
+            };
+            using (var ctx = new ApplicationDbContext())
+            {
+                ctx.GameConsoles.Add(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public IEnumerable<GameConsoleList> GetConsoles()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx.GameConsoles
+                    .Select(
+                        e => new GameConsoleList
+                        {
+                            ConsoleName = e.ConsoleName
+                        }
+                    );
+
+                return query.ToArray();
+            }
+        }
+
+        public bool UpdateConsole(GameConsoleUpdate model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.GameConsoles.Single(e => e.ConsoleId == model.ConsoleId);
+
+                entity.ConsoleName = model.ConsoleName;
+
+                return ctx.SaveChanges() == 1;
+
+            }
+        }
+
+        public bool DeleteConsole(string consoleName)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.GameConsoles.Single(e => e.ConsoleName == consoleName);
+                ctx.GameConsoles.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+
+
+
+
+
     }
 }
