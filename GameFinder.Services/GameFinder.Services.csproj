@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="GameConsoleService.cs" />
     <Compile Include="GameServices.cs" />
+    <Compile Include="GenreService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
