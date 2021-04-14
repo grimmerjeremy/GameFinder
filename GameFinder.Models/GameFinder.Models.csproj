@@ -54,6 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameCreate.cs" />
+    <Compile Include="GameList.cs" />
+    <Compile Include="GameUpdate.cs" />
     <Compile Include="GenreCreate.cs" />
     <Compile Include="GenreDetail.cs" />
     <Compile Include="GenreList.cs" />
