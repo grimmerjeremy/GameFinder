@@ -5,14 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameFinder.Data
+namespace GameFinder.Models
 {
-    public class Game
+    public class GenreCreate
     {
-        [Key]
-        public int Id { get; set; }
-
         [Required]
+        [MaxLength(20, ErrorMessage = "Genre name is too long")]
         public string Name { get; set; }
     }
 }
