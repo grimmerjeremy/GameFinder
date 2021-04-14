@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameFinder.Data
+namespace GameFinder.Models
 {
-    public class GameConsole
+    public class GameConsoleCreate
     {
-        [Key]
         public int ConsoleId { get; set; }
-        [Required]
         public string ConsoleName { get; set; }
     }
 }

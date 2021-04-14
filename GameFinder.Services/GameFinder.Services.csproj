@@ -65,6 +65,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameFinder.Data\GameFinder.Data.csproj">
+      <Project>{1D61F764-640F-4C22-BB67-7B64213E42BC}</Project>
+      <Name>GameFinder.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameFinder.Models\GameFinder.Models.csproj">
+      <Project>{07298D4C-71AC-4772-89F4-944BB751116B}</Project>
       <Project>{1d61f764-640f-4c22-bb67-7b64213e42bc}</Project>
       <Name>GameFinder.Data</Name>
     </ProjectReference>
