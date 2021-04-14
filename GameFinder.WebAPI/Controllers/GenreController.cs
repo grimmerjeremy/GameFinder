@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace GameFinder.WebAPI.Controllers
 {
+    [Authorize]
     public class GenreController : ApiController
     {
         private readonly GenreService _service = new GenreService();
