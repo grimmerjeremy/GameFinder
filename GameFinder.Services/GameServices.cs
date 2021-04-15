@@ -20,7 +20,8 @@ namespace GameFinder.Services
                     Name = model.Name,
                     GenreId = model.GenreId,
                     ConsoleId = model.ConsoleId,
-                    GameRating = model.GameRating
+                    GameRating = model.GameRating,
+                    Playtime = model.ExpectedPlayTime
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -51,7 +52,7 @@ namespace GameFinder.Services
                                     GenreName = e.Genre.Name,
                                     ConsoleName = e.Console.ConsoleName,
                                     GameRating = e.GameRating,
-                                    ExpectedPlaytime = e.Playtime
+                                    ExpectedPlaytime = e.Playtime,
                                 }
                         );
 
@@ -75,7 +76,9 @@ namespace GameFinder.Services
                                  Id = e.Id,
                                  Name = e.Name,
                                  GenreName = e.Genre.Name,
-                                 ConsoleName = e.Console.ConsoleName
+                                 ConsoleName = e.Console.ConsoleName,
+                                 GameRating = e.GameRating,
+                                 ExpectedPlaytime = e.Playtime
                              });
                 
                 return query.ToArray();
@@ -90,7 +93,7 @@ namespace GameFinder.Services
                     ctx
                         .Games
                         .Where(e =>
-                               e.GameRating <= minRating && e.GameRating >= maxRating)
+                               e.GameRating >= minRating && e.GameRating <= maxRating)
                         .Include(e => e.Console).Include(e => e.Genre)
                         .Select(e =>
                              new GameList
@@ -99,8 +102,8 @@ namespace GameFinder.Services
                                  Name = e.Name,
                                  GenreName = e.Genre.Name,
                                  ConsoleName = e.Console.ConsoleName,
-                                 GameRating = e.GameRating
-
+                                 GameRating = e.GameRating,
+                                 ExpectedPlaytime = e.Playtime
                              });
 
                 return query.ToArray();

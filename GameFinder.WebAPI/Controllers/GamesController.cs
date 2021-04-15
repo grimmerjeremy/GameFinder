@@ -31,9 +31,11 @@ namespace GameFinder.WebAPI.Controllers
             {
                 if (!gameServices.CreateGame(game))
                     return InternalServerError();
+
+                return Ok();
             }
 
-            return Ok();
+            return BadRequest();
         }
 
         public IHttpActionResult Get(double minRating, double maxRating)
