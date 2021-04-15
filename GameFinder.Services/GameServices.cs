@@ -19,7 +19,8 @@ namespace GameFinder.Services
                 {
                     Name = model.Name,
                     GenreId = model.GenreId,
-                    ConsoleId = model.ConsoleId
+                    ConsoleId = model.ConsoleId,
+                    GameRating = model.GameRating
                 };
 
             using (var ctx = new ApplicationDbContext())

@@ -13,5 +13,6 @@ namespace GameFinder.Models
         public int GenreId { get; set; }
 
         public int ConsoleId { get; set; }
+        public double GameRating { get; set; }
     }
 }
