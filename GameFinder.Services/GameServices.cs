@@ -45,6 +45,26 @@ namespace GameFinder.Services
             }
         }
 
+        public IEnumerable<GameList> GetGamesByPlayTime(int high, int low)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Games
+                        .Where(e =>
+                               e.Playtime >= low && e.Playtime <= high)
+                        .Select(e =>
+                             new GameList
+                             {
+                                 Id = e.Id,
+                                 Name = e.Name
+                             });
+                
+                return query.ToArray();
+            }
+        }
+
         public bool UpdateGame(GameUpdate model)
         {
             using (var ctx = new ApplicationDbContext())
