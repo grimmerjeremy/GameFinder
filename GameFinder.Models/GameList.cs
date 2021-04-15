@@ -8,10 +8,11 @@ namespace GameFinder.Models
 {
     public class GameList
     {
-        public int Id { get; set; }
         public string Name { get; set; }
+        public int Id { get; set; }
         public string GenreName { get; set; }
         public string ConsoleName { get; set; }
         public double GameRating { get; set; }
+        public double ExpectedPlaytime { get; set; }
     }
 }
