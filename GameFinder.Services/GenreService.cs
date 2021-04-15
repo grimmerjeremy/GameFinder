@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace GameFinder.Services
 {
@@ -42,11 +43,18 @@ namespace GameFinder.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Genres.Single(e => genreId == e.Id);
+                var entity = ctx.Genres.Include(e => e.GamesInGenre).Single(e => genreId == e.Id);
+
+                var namesOfGamesInGenre = new List<string>();
+                foreach (var game in entity.GamesInGenre)
+                {
+                    namesOfGamesInGenre.Add(game.Name);
+                }
 
                 return new GenreDetail()
                 {
-                    Name = entity.Name
+                    Name = entity.Name,
+                    GameNames = namesOfGamesInGenre
                 };
             }
         }

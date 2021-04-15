@@ -9,5 +9,9 @@ namespace GameFinder.Models
     public class GameCreate
     {
         public string Name { get; set; }
+
+        public int GenreId { get; set; }
+
+        public int ConsoleId { get; set; }
     }
 }

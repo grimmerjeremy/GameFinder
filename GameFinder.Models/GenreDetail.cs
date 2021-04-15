@@ -9,5 +9,7 @@ namespace GameFinder.Models
     public class GenreDetail
     {
         public string Name { get; set; }
+
+        public List<string> GameNames { get; set; } = new List<string>();
     }
 }

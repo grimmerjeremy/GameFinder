@@ -13,6 +13,6 @@ namespace GameFinder.Data
         public int ConsoleId { get; set; }
         [Required]
         public string ConsoleName { get; set; }
-        public virtual List<Game> GamesOnConsole { get; set; } = new List<Game>();
+        public List<Game> GamesOnConsole { get; set; } = new List<Game>();
     }
 }
