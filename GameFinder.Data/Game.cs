@@ -28,5 +28,7 @@ namespace GameFinder.Data
 
         [Required]
         public int Playtime { get; set; }
+        [Required]
+        public double GameRating { get; set; }
     }
 }

@@ -31,6 +31,13 @@ namespace GameFinder.WebAPI.Controllers
             return Ok();
         }
 
+        public IHttpActionResult Get(double minRating, double maxRating)
+        {
+            var GamesByGameRating = gameServices.GetGamesByGameRating(minRating, maxRating);
+
+            return Ok(GamesByGameRating);
+        }
+
         public IHttpActionResult Get(int maxPlayTime, int minPlayTime)
         {
             var GamesByPlayTime = gameServices.GetGamesByPlayTime(maxPlayTime, minPlayTime);
