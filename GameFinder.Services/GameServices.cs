@@ -36,8 +36,10 @@ namespace GameFinder.Services
                             e =>
                                 new GameList
                                 {
+                                    Name = e.Name,
                                     Id = e.Id,
-                                    Name = e.Name
+                                    GenreName = e.Genre.Name,
+                                    ConsoleName = e.Console.ConsoleName
                                 }
                         );
 
@@ -58,7 +60,9 @@ namespace GameFinder.Services
                              new GameList
                              {
                                  Id = e.Id,
-                                 Name = e.Name
+                                 Name = e.Name,
+                                 GenreName = e.Genre.Name,
+                                 ConsoleName = e.Console.ConsoleName
                              });
                 
                 return query.ToArray();
