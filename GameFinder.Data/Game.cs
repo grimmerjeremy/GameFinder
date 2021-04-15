@@ -25,5 +25,8 @@ namespace GameFinder.Data
         public int ConsoleId { get; set; }
 
         public virtual GameConsole Console { get; set; }
+
+        [Required]
+        public int Playtime { get; set; }
     }
 }

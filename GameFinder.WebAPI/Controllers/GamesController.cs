@@ -20,7 +20,7 @@ namespace GameFinder.WebAPI.Controllers
             return Ok(games);
         }
 
-        public IHttpActionResult Game(GameCreate game)
+        public IHttpActionResult Post(GameCreate game)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -29,6 +29,13 @@ namespace GameFinder.WebAPI.Controllers
                 return InternalServerError();
 
             return Ok();
+        }
+
+        public IHttpActionResult Get(int maxPlayTime, int minPlayTime)
+        {
+            var GamesByPlayTime = gameServices.GetGamesByPlayTime(maxPlayTime, minPlayTime);
+
+            return Ok(GamesByPlayTime);
         }
 
         public IHttpActionResult Put(GameUpdate game)
