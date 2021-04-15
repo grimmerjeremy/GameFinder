@@ -38,11 +38,16 @@ namespace GameFinder.WebAPI.Controllers
 
         public IHttpActionResult Get(double minRating, double maxRating)
         {
-            var GamesByGameRating = gameServices.GetGamesByGameRating(minRating, maxRating);
+            if (minRating <= maxRating && minRating >= 0 && maxRating <= 10)
+            {
+                var GamesByGameRating = gameServices.GetGamesByGameRating(minRating, maxRating);
 
-            var GamesByRatingDescending = GamesByGameRating.OrderByDescending(e => e.GameRating);
+                var GamesByRatingDescending = GamesByGameRating.OrderByDescending(e => e.GameRating);
 
-            return Ok(GamesByRatingDescending);
+                return Ok(GamesByRatingDescending);
+            }
+
+            return BadRequest();
         }
 
         public IHttpActionResult Get(int maxPlayTime, int minPlayTime)
@@ -52,6 +57,7 @@ namespace GameFinder.WebAPI.Controllers
                 var GamesByPlayTime = gameServices.GetGamesByPlayTime(maxPlayTime, minPlayTime);
                 return Ok(GamesByPlayTime);
             }
+
             return BadRequest();
         }
 
