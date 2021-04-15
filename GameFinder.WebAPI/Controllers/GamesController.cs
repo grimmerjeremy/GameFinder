@@ -17,7 +17,9 @@ namespace GameFinder.WebAPI.Controllers
         public IHttpActionResult Get()
         {
             var games = gameServices.GetGames();
-            return Ok(games);
+            var gamesAlphabetical = games.OrderBy(x => x.Name);
+
+            return Ok(gamesAlphabetical);
         }
 
         public IHttpActionResult Post(GameCreate game)

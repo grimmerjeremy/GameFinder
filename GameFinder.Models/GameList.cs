@@ -10,5 +10,7 @@ namespace GameFinder.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string GenreName { get; set; }
+        public string ConsoleName { get; set; }
     }
 }
