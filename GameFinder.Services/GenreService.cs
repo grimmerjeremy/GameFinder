@@ -39,6 +39,7 @@ namespace GameFinder.Services
             }
         }
 
+        // This was completed in ticket 4 but was supposed to be in ticket 11, repushing
         public GenreDetail GetGenreByGenreId(int genreId)
         {
             using (var ctx = new ApplicationDbContext())
