@@ -69,6 +69,30 @@ namespace GameFinder.Services
             }
         }
 
+        public IEnumerable<GameList> GetGamesByGameRating(double minRating, double maxRating)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Games
+                        .Where(e =>
+                               e.GameRating <= minRating && e.GameRating >= maxRating)
+                        .Select(e =>
+                             new GameList
+                             {
+                                 Id = e.Id,
+                                 Name = e.Name,
+                                 GenreName = e.Genre.Name,
+                                 ConsoleNmae = e.Console.ConsoleName,
+                                 GameRating = e.GameRating
+
+                             });
+
+                return query.ToArray();
+            }
+        }
+
         public bool UpdateGame(GameUpdate model)
         {
             using (var ctx = new ApplicationDbContext())
