@@ -12,5 +12,6 @@ namespace GameFinder.Models
         public string Name { get; set; }
         public string GenreName { get; set; }
         public string ConsoleName { get; set; }
+        public double GameRating { get; set; }
     }
 }
