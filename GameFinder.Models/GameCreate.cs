@@ -14,5 +14,6 @@ namespace GameFinder.Models
 
         public int ConsoleId { get; set; }
         public double GameRating { get; set; }
+        public int ExpectedPlayTime { get; set; }
     }
 }
