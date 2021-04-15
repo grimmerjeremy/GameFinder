@@ -44,9 +44,12 @@ namespace GameFinder.WebAPI.Controllers
 
         public IHttpActionResult Get(int maxPlayTime, int minPlayTime)
         {
-            var GamesByPlayTime = gameServices.GetGamesByPlayTime(maxPlayTime, minPlayTime);
-
-            return Ok(GamesByPlayTime);
+            if (maxPlayTime >= minPlayTime && maxPlayTime > 0 && minPlayTime > 0)
+            {
+                var GamesByPlayTime = gameServices.GetGamesByPlayTime(maxPlayTime, minPlayTime);
+                return Ok(GamesByPlayTime);
+            }
+            return BadRequest();
         }
 
         public IHttpActionResult Put(GameUpdate game)
