@@ -37,7 +37,9 @@ namespace GameFinder.WebAPI.Controllers
         {
             var GamesByGameRating = gameServices.GetGamesByGameRating(minRating, maxRating);
 
-            return Ok(GamesByGameRating);
+            var GamesByRatingDescending = GamesByGameRating.OrderByDescending(e => e.GameRating);
+
+            return Ok(GamesByRatingDescending);
         }
 
         public IHttpActionResult Get(int maxPlayTime, int minPlayTime)
