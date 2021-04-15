@@ -54,6 +54,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameConsoleCreate.cs" />
+    <Compile Include="GameConsoleDelete.cs" />
+    <Compile Include="GameConsoleList.cs" />
+    <Compile Include="GameConsoleUpdate.cs" />
+    <Compile Include="GameCreate.cs" />
+    <Compile Include="GameList.cs" />
+    <Compile Include="GameUpdate.cs" />
+    <Compile Include="GenreCreate.cs" />
+    <Compile Include="GenreDetail.cs" />
+    <Compile Include="GenreList.cs" />
+    <Compile Include="GenreUpdate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
