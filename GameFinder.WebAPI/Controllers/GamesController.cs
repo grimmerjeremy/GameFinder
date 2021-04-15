@@ -27,8 +27,11 @@ namespace GameFinder.WebAPI.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            if (!gameServices.CreateGame(game))
-                return InternalServerError();
+            if (game.GameRating >= 0 && game.GameRating <= 10)
+            {
+                if (!gameServices.CreateGame(game))
+                    return InternalServerError();
+            }
 
             return Ok();
         }
