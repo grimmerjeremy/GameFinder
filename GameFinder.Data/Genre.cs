@@ -15,6 +15,6 @@ namespace GameFinder.Data
         [Required]
         [MaxLength(20, ErrorMessage ="Genre Name is too long")]
         public string  Name { get; set; }
-        public virtual List<Game> GamesInGenre { get; set; } = new List<Game>();
+        public List<Game> GamesInGenre { get; set; } = new List<Game>();
     }
 }

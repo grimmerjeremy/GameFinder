@@ -19,12 +19,12 @@ namespace GameFinder.Data
         [ForeignKey(nameof(Genre))]
         public int GenreId { get; set; }
 
-        public virtual Genre Genre { get; set; }
+        public Genre Genre { get; set; }
 
-        [ForeignKey(nameof(GameConsole))]
+        [ForeignKey(nameof(Console))]
         public int ConsoleId { get; set; }
 
-        public virtual GameConsole Console { get; set; }
+        public GameConsole Console { get; set; }
 
         [Required]
         public int Playtime { get; set; }

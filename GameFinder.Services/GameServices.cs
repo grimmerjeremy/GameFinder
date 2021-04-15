@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace GameFinder.Services
 {
@@ -16,12 +17,20 @@ namespace GameFinder.Services
             var entity =
                 new Game()
                 {
-                    Name = model.Name
+                    Name = model.Name,
+                    GenreId = model.GenreId,
+                    ConsoleId = model.ConsoleId
                 };
 
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Games.Add(entity);
+                var genreEntity = ctx.Genres.Find(model.GenreId);
+                var consoleEntity = ctx.GameConsoles.Find(model.ConsoleId);
+
+                genreEntity.GamesInGenre.Add(entity);
+                consoleEntity.GamesOnConsole.Add(entity);
+
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -31,7 +40,7 @@ namespace GameFinder.Services
             {
                 var query =
                     ctx
-                        .Games
+                        .Games.Include(e => e.Console).Include(e => e.Genre)
                         .Select(
                             e =>
                                 new GameList
@@ -56,6 +65,7 @@ namespace GameFinder.Services
                         .Games
                         .Where(e =>
                                e.Playtime >= low && e.Playtime <= high)
+                        .Include(e => e.Console).Include(e => e.Genre)
                         .Select(e =>
                              new GameList
                              {
@@ -78,6 +88,7 @@ namespace GameFinder.Services
                         .Games
                         .Where(e =>
                                e.GameRating <= minRating && e.GameRating >= maxRating)
+                        .Include(e => e.Console).Include(e => e.Genre)
                         .Select(e =>
                              new GameList
                              {
