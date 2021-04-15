@@ -48,7 +48,9 @@ namespace GameFinder.Services
                                     Name = e.Name,
                                     Id = e.Id,
                                     GenreName = e.Genre.Name,
-                                    ConsoleName = e.Console.ConsoleName
+                                    ConsoleName = e.Console.ConsoleName,
+                                    GameRating = e.GameRating,
+                                    ExpectedPlayTime = e.Playtime
                                 }
                         );
 
