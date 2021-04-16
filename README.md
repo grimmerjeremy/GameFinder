@@ -10,7 +10,7 @@ We worked on a Web API that allowed a user to create different Games, Game Conso
 
 # Division of Labor
 
-Jeremy was the GitMaster, so he created the GitHub Repo. We all collectively created and wrote down the User Stories, as well as the tasks for each User Story. We worked together to decide which tasks we could complete, and we assigned them all Fibonacci Ratings. In the end, Justinn completed tasks 1, 6, and 9. Jeremy completed tasks 3, 5, and 8. Peter completed tasks 2, 4, 10, and 11. We all worked together to debug the Web API and make sure that the endpoints were working, and Peter created the debugging ticket to fix these errors.
+Jeremy was the GitMaster, so he created the GitHub Repo. We all collectively created and wrote down the User Stories, as well as the tasks for each User Story. We worked together to decide which tasks we could complete, and we assigned them all Fibonacci Ratings. In the end, Justinn completed tasks 1, 6, and 9. Jeremy completed tasks 3, 5, and 8. Peter completed tasks 2, 4, 10, and 11 (12 was a side project that we did not discuss doing together, but Peter just added it at the end). We all worked together to debug the Web API and make sure that the endpoints were working, and Peter created the debugging ticket to fix these errors.
 
 # Links to our external resources (Google Docs for planning, Trello for writing User Stories and Tickets)
 
