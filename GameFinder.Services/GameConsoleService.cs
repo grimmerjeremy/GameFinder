@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace GameFinder.Services
 {
@@ -39,6 +40,26 @@ namespace GameFinder.Services
                     );
 
                 return query.ToArray();
+            }
+        }
+
+        public GameConsoleDetail GetConsoleByConsoleId(int consoleId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.GameConsoles.Include(e => e.GamesOnConsole).Single(e => consoleId == e.ConsoleId);
+
+                var namesOfGamesOnConsole = new List<string>();
+                foreach (var game in entity.GamesOnConsole)
+                {
+                    namesOfGamesOnConsole.Add(game.Name);
+                }
+
+                return new GameConsoleDetail()
+                {
+                    ConsoleName = entity.ConsoleName,
+                    GameNames = namesOfGamesOnConsole
+                };
             }
         }
 

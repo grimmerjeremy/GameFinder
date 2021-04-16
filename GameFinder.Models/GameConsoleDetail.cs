@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace GameFinder.Models
 {
-    public class GameConsoleDelete
+    public class GameConsoleDetail
     {
         public string ConsoleName { get; set; }
+
+        public List<string> GameNames { get; set; } = new List<string>();
     }
 }

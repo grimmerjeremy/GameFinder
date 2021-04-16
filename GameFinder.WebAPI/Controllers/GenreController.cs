@@ -18,7 +18,7 @@ namespace GameFinder.WebAPI.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequest(ModelState);
             }
 
             if (!_service.CreateGenre(model))

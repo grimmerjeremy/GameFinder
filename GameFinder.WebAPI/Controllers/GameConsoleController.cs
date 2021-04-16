@@ -37,6 +37,13 @@ namespace GameFinder.WebAPI.Controllers
             return Ok(console);
         }
 
+        public IHttpActionResult Get(int consoleId)
+        {
+            var console = service.GetConsoleByConsoleId(consoleId);
+
+            return Ok(console);
+        }
+
         public IHttpActionResult Put(GameConsoleUpdate consoleId)
         {
             if (!ModelState.IsValid)
