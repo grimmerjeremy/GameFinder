@@ -55,7 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameConsoleCreate.cs" />
-    <Compile Include="GameConsoleDelete.cs" />
+    <Compile Include="GameConsoleDetail.cs" />
     <Compile Include="GameConsoleList.cs" />
     <Compile Include="GameConsoleUpdate.cs" />
     <Compile Include="GameCreate.cs" />
